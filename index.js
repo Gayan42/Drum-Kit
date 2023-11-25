@@ -1,24 +1,9 @@
 
 var numbrOfDrumButtons = document.querySelectorAll(".drum").length;
-var houseKeeper = {name:"Gayan", age:32, nic:"913411820V", hobbies:["travel","music"]};
 var audio;
 var activeButton ;
 
-function HouseKeeperConctruct (name,age,nic,hobbies){
-this.name = name;
-this.age = age;
-this.nic = nic;
-this.hobbies = hobbies;
-this.clean = function (){
-    alert("Cleaning in progress");
-}
-}
 
-var houseKeeper1 = new HouseKeeperConctruct("Perera",33,"913411821V",["Cycling","Fishing"]);
-
-alert("Hi " +houseKeeper.name + " age " + houseKeeper.age +" hobbies " + houseKeeper.hobbies[0] + " and " + houseKeeper.hobbies[1]);
-alert("Hi2 " +houseKeeper1.name + " age " + houseKeeper1.age +" hobbies " + houseKeeper1.hobbies[0] + " and " + houseKeeper1.hobbies[1] + houseKeeper1.clean());
-houseKeeper1.clean();
 
 for (let index = 0; index < numbrOfDrumButtons; index++) {
     document.querySelectorAll("button")[index].addEventListener("click", function (){
@@ -64,6 +49,14 @@ function sound(value){
             audio = new Audio("./sounds/tom-2.mp3");
             audio.play();
             break;
+            case "k":
+                audio = new Audio("./sounds/tom-3.mp3");
+                audio.play();
+                break;
+            case "l":
+                audio = new Audio("./sounds/tom-4.mp3");
+                audio.play();
+                break;
     
         default:
             break;
@@ -74,11 +67,11 @@ function sound(value){
 function animation(currentkey){
      activeButton = document.querySelector("."+currentkey);
     activeButton.classList.add("pressed");
-    console.log(activeButton.classList); 
+    //console.log(activeButton.classList); 
 
     setTimeout( function (){
-        activeButton = document.querySelector("."+currentkey);
-        activeButton.classList.remove("pressed");
+    activeButton = document.querySelector("."+currentkey);
+    activeButton.classList.remove("pressed");
     },100);
 }
 
